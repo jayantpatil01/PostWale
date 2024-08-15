@@ -147,3 +147,11 @@ body {
         font-size: 0.8em; /* Adjust font size for very small screens */
     }
 }
+.error-message {
+    color: #e74c3c;
+    background-color: #fce4e4;
+    border: 1px solid #e74c3c;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+}

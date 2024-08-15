@@ -12,11 +12,14 @@
     <div class="container">
         <div class="form-container">
             <h1>Register on PostWale</h1>
+            <% if (typeof error !== 'undefined' && error) { %>
+                <p class="error-message"><%= error %></p>
+            <% } %>
+
             <form action="/register" method="post" enctype="multipart/form-data">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
 
-                
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
                 
@@ -27,14 +30,15 @@
                 <input type="tel" id="mobile" name="mobile" required>
                 
                 <label for="avatar">Avatar:</label>
-                <input type="file" id="avatar" name="avatar"  required>
+                <input type="file" id="avatar" name="avatar" required>
+                
                 <button type="submit">Register</button>
             </form>
         </div>
         <div class="image-container">
-            <img src="/images/Register.png" alt="Image">
+            <img src="/images/Register.png" alt="Registration Image">
             <a href="/login" class="member-link">Already a member? Log in</a>
-        </div>        
+        </div>
     </div>
 </body>
 </html>

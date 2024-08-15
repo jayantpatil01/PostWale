@@ -33,9 +33,13 @@ router.post('/register', upload.single("avatar"), async (req, res) => {
         res.cookie("Token", token);
         res.redirect('/Home');
     } catch (error) {
-        res.status(500).json({ message: "Error registering user", error });
+        console.error("Error registering user:", error);
+        res.status(500).render('Register', { error: "Error registering user. Please try again." });
     }
 });
+
+
+
 
 router.get('/login', (req, res) => {
     const message = req.query.message || '';
@@ -48,7 +52,7 @@ router.post('/login', async (req, res) => {
         const user = await userModel.findOne({ email });
 
         if (!user) {
-            return res.status(400).json({ message: "User not found" });
+            return res.status(400).render('Login', { message: "User not found" });
         }
 
         const result = await bcrypt.compare(password, user.password);
@@ -57,37 +61,44 @@ router.post('/login', async (req, res) => {
             res.cookie("Token", token);
             res.redirect('/Home');
         } else {
-            res.status(400).json({ message: "Invalid password" });
+            res.status(400).render('Login', { message: "Invalid password" });
         }
     } catch (error) {
-        res.status(500).json({ message: "Error logging in", error });
+        console.error("Error logging in:", error);
+        res.status(500).render('Login', { message: "Error logging in. Please try again." });
     }
 });
+
 
 router.get('/Home', authenticate, async (req, res) => {
     try {
         const posts = await postModel.find().populate('author', 'name avatar');
         res.render('Home', { user: req.user, posts });
     } catch (error) {
-        res.status(500).json({ message: "Error fetching posts", error });
+        console.error("Error fetching posts:", error);
+        res.status(500).render('Home', { user: req.user, posts: [], error: "Error fetching posts. Please try again later." });
     }
 });
+
 
 router.get('/Home/Users', authenticate, async (req, res) => {
     try {
         const users = await userModel.find();
         res.render('Users', { users });
     } catch (error) {
-        res.status(500).json({ message: "Error fetching users", error });
+        console.error("Error fetching users:", error);
+        res.status(500).render('Users', { users: [], error: "Error fetching users. Please try again later." });
     }
 });
+
 
 router.get('/myprofile', authenticate, async (req, res) => {
     try {
         const user = await userModel.findById(req.user._id).populate('posts');
         res.render('Profile', { user });
     } catch (error) {
-        res.status(500).json({ message: "Error fetching user profile", error });
+        console.error("Error fetching user profile:", error);
+        res.status(500).render('Profile', { user: {}, error: "Error fetching user profile. Please try again later." });
     }
 });
 
@@ -96,6 +107,6 @@ router.get('/logout', authenticate, (req, res) => {
     res.redirect('/login');
 });
 
-
-
 module.exports = router;
+
+
