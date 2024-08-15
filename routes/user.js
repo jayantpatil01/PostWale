@@ -13,10 +13,10 @@ const { body, validationResult } = require('express-validator');
 
 // Register Page Route
 router.get('/', (req, res) => {
-    res.render("Register");
+    res.render("Register", { errors: [] }); // Always pass errors, even if empty
 });
 
-// Register Route
+// Register POST route
 router.post('/register', 
     upload.single("avatar"),
     [
@@ -88,6 +88,7 @@ router.post('/register',
         }
     }
 );
+
 
 
 // GET Login Route

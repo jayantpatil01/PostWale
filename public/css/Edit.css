@@ -94,6 +94,25 @@ button[type="submit"]:hover {
     transform: scale(1.02);
 }
 
+/* Go Back Button */
+.go-back-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.go-back-btn:hover {
+    background-color: #ccc;
+    color: #000;
+}
+
 /* Responsive Styling */
 @media (max-width: 768px) {
     form {
