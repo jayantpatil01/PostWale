@@ -1,0 +1,177 @@
+/* General Styling */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Welcome Message Section */
+.welcome-message {
+    text-align: center;
+    margin: 40px 20px;
+}
+
+.welcome-message p {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a202c;
+}
+
+/* Posts Section Styling */
+.posts {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.post {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 300px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.post:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.03);
+}
+
+.post img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+    border-radius: 10px 10px 0 0;
+}
+
+.post h3 {
+    font-size: 20px;
+    margin: 15px;
+    color: #1a202c;
+    font-weight: 600;
+}
+
+.post p {
+    padding: 0 15px;
+    font-size: 16px;
+    color: #666;
+}
+
+.post .author {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    font-size: 14px;
+    color: #999;
+    text-align: right;
+    border-top: 1px solid #ddd;
+}
+
+.post .author .avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Like Section Styling */
+.like-section {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    background-color: #fafafa;
+}
+
+.edit-button {
+    display: inline-block;
+    background-color: #3498db;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+.like-button {
+    text-decoration: none;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.like-button.like {
+    background-color: #f39c12;
+}
+
+.like-button.like:hover {
+    background-color: #e67e22;
+}
+
+.like-button.unlike {
+    background-color: #e74c3c;
+}
+
+.like-button.unlike:hover {
+    background-color: #c0392b;
+}
+
+.likes-count {
+    font-size: 14px;
+    color: #666;
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.likes-count i {
+    color: #f39c12; /* Heart icon color */
+    margin-right: 8px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .post {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .welcome-message p {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-message p {
+        font-size: 18px;
+    }
+
+    .post {
+        width: 100%;
+        max-width: none;
+    }
+}

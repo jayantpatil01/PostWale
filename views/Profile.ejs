@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - PostWale</title>
+    <link rel="stylesheet" href="/css/Profile.css">
+    <link rel="stylesheet" href="/css/partials/Navbar.css">
+    <link rel="stylesheet" href="/css/partials/Footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <%- include('partials/Navbar') %>
+
+    <header>
+        <h1>My Profile</h1>
+    </header>
+
+    <section class="profile-info">
+        <div class="profile-header">
+            <img src="/images/uploads/<%= user.avatar %>" alt="User's avatar" class="profile-avatar"> 
+            <div class="profile-details">
+                <h2><%= user.name %></h2>
+                <p>Email: <%= user.email %></p>
+                <p>Mobile: <%= user.mobile %></p>
+                <p>Posts: <%= user.posts.length %></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="posts-grid">
+        <% if (user.posts.length > 0) { %>
+            <% user.posts.forEach(post => { %>
+                <div class="post-card">
+                    <img src="/images/uploads/<%= post.image %>" alt="Post Image">
+                    <p class="post-content"><%= post.content %></p>
+                    <p class="post-date">Posted on <%= new Date(post.createdAt).toLocaleDateString() %></p>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No posts available.</p>
+        <% } %>
+    </section>
+
+    <%- include('partials/Footer') %>
+</body>
+</html>

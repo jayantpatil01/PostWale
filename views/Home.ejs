@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - PostWale</title>
+    <link rel="stylesheet" href="/css/Home.css">
+    <link rel="stylesheet" href="/css/partials/Navbar.css">
+    <link rel="stylesheet" href="/css/partials/Footer.css">
+
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <%- include('partials/Navbar') %>
+
+
+    <section class="welcome-message">
+        <p>Welcome to your home page, <%= user.name %>!</p>
+    </section>
+
+    <section class="posts">
+        <% if (posts.length > 0) { %>
+            <% posts.forEach(post => { %>
+                <div class="post">
+                    <h3><%= post.title %></h3>
+                    <img src="/images/uploads/<%= post.image %>" alt="<%= post.title %>"> 
+                    <p><%= post.content %></p>
+                    <p class="author">
+                        <img src="/images/uploads/<%= post.author.avatar %>" alt="<%= post.author.name %>'s avatar" class="avatar">
+                        Posted by <%= post.author.name %> on <%= new Date(post.createdAt).toLocaleDateString() %>
+                    </p>
+
+                    <!-- Show Edit button if the logged-in user is the author of the post -->
+                    <div class="like-section">
+                        <% if (post.author._id.toString() === user._id.toString()) { %>
+                            <a href="/editpost/<%= post._id %>" class="edit-button">Edit</a>
+                        <% } %>
+                        <% const hasLiked = post.likes.includes(user._id.toString()); %>
+                        <a href="/like/<%= post._id %>" class="like-button <%= hasLiked ? 'unlike' : 'like' %>">
+                            <%= hasLiked ? 'Unlike' : 'Like' %>
+                        </a>
+                        <span class="likes-count">
+                            <i class="fas fa-heart"></i> <%= post.likes.length %>
+                        </span>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No posts available.</p>
+        <% } %>
+    </section>
+    <%- include('partials/Footer') %>
+
+
+</body>
+</html>

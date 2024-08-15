@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users - PostWale</title>
+    <link rel="stylesheet" href="/css/Users.css">
+    <link rel="stylesheet" href="/css/partials/Navbar.css">
+    <link rel="stylesheet" href="/css/partials/Footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+</head>
+<body>
+    
+    
+    <%- include('partials/Navbar') %>
+
+    <header>
+        <h1>All Users</h1>
+    </header>
+
+    <section class="users-list">
+        <% if (users.length > 0) { %>
+            <% users.forEach(user => { %>
+                <div class="user-card">
+                    <img src="/images/uploads/<%= user.avatar %>" alt="<%= user.name %>'s avatar">
+                    <div class="user-info">
+                        <h3><%= user.name %></h3>
+                        <p>Posts: <%= user.posts.length %></p>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No users found.</p>
+        <% } %>
+    </section>
+    <%- include('partials/Footer') %>
+
+</body>
+</html>

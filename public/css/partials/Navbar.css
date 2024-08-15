@@ -1,0 +1,127 @@
+/* Ocean Breeze Theme */
+.navbar {
+    background: linear-gradient(90deg, #0099cc 0%, #66ccff 100%);
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar .logo:hover {
+    color: #f39c12;
+}
+
+.navbar .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.navbar .hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: all 0.3s;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 15px;
+}
+
+.navbar-menu li {
+    margin: 0;
+}
+
+.navbar-menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 12px;
+    transition: color 0.3s;
+}
+
+.navbar-menu li a .nav-text {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.navbar-menu li a:hover {
+    color: #f39c12;
+}
+
+.logout-btn {
+    background-color: #e74c3c;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Mobile View - Hamburger Menu */
+.navbar.active .navbar-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    background-color: #0099cc;
+    border-radius: 5px;
+    padding: 10px;
+    gap: 12px;
+}
+
+.navbar-menu {
+    display: flex;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .navbar-menu {
+        display: none;
+    }
+
+    .navbar .hamburger {
+        display: flex;
+    }
+
+    .navbar.active .navbar-menu {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-menu li a {
+        font-size: 16px;
+    }
+
+    .navbar-menu li a .nav-text {
+        font-size: 12px;
+    }
+}

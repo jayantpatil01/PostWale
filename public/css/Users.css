@@ -1,0 +1,123 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+
+
+/* Header Styling */
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+    margin-bottom: 10px;
+    font-size: 36px;
+    color: #1a202c;
+}
+
+/* Users List Styling */
+.users-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.user-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    width: 220px;
+    margin: 15px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.user-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 3px solid #f39c12;
+    transition: transform 0.3s;
+}
+
+.user-card img:hover {
+    transform: scale(1.1);
+}
+
+.user-card .user-info {
+    padding: 10px;
+}
+
+.user-card h3 {
+    font-size: 22px;
+    color: #1a202c;
+    margin: 0;
+}
+
+.user-card p {
+    font-size: 16px;
+    color: #666;
+    margin: 5px 0 0;
+}
+
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    
+
+    /* Header adjustments */
+    header h1 {
+        font-size: 28px; /* Adjust font size for smaller screens */
+    }
+
+    /* Users List adjustments */
+    .user-card {
+        width: 90%; /* Adjust user card width for smaller screens */
+        max-width: 300px; /* Max width to maintain good appearance */
+    }
+
+    .user-card img {
+        width: 100px; /* Adjust profile picture size */
+        height: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    
+
+    /* Header adjustments for very small screens */
+    header h1 {
+        font-size: 24px; /* Further adjust font size */
+    }
+
+    /* Users List adjustments for very small screens */
+    .user-card {
+        width: 100%; /* Full width for user card */
+        max-width: none; /* Remove max-width restriction */
+    }
+
+    .user-card img {
+        width: 80px; /* Further adjust profile picture size */
+        height: 80px;
+    }
+}

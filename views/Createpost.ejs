@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post - PostWale</title>
+    <link rel="stylesheet" href="/css/CreatePost.css">
+    <link rel="stylesheet" href="/css/partials/Navbar.css">
+    <link rel="stylesheet" href="/css/partials/Footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <%- include('partials/Navbar') %>
+
+
+    <header>
+        <h1>Create a New Post</h1>
+    </header>
+
+    <section class="create-post-form">
+        <form action="/createpost" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="image">Upload Image</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+            </div>
+
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea id="content" name="content" rows="5" required></textarea>
+            </div>
+
+            <button type="submit">Create Post</button>
+        </form>
+    </section>
+    <%- include('partials/Footer') %>
+</body>
+</html>

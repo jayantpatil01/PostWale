@@ -1,0 +1,158 @@
+/* General Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5; /* Light background for the page */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333; /* Dark text color for readability */
+}
+
+/* Container Styling */
+.container {
+    display: flex;
+    flex-direction: row;
+    background-color: #ffffff; /* Light background for the container */
+    border: 1px solid #ddd; /* Slightly darker border for contrast */
+    border-radius: 10px;
+    max-width: 900px;
+    width: 100%;
+    overflow: hidden; /* Ensure content doesn't overflow */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Form Container Styling */
+.form-container {
+    padding: 40px;
+    width: 60%;
+    border-right: 1px solid #ddd; /* Matching border color */
+    box-sizing: border-box;
+}
+
+.form-container h1 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: #333; /* Dark text for headings */
+    text-align: center;
+    font-weight: 500;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container label {
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #666; /* Medium gray for labels */
+}
+
+.form-container input {
+    margin-bottom: 15px;
+    padding: 9px 8px;
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px;
+    background-color: #ffffff; /* White background for input fields */
+    color: #333; /* Dark text inside input fields */
+    font-size: 0.9em;
+}
+
+.form-container input:focus {
+    border-color: #888; /* Slightly darker border on focus */
+    outline: none;
+}
+
+.form-container button {
+    padding: 10px;
+    background-color: #0095f6; /* Instagram-like blue color */
+    color: white;
+    border: none;
+    border-radius: 20px; /* More rounded corners */
+    font-size: 0.9em; /* Smaller font size */
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+}
+
+.form-container button:hover {
+    background-color: #007bbf;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow effect on hover */
+}
+
+/* Image Container Styling */
+.image-container {
+    width: 40%;
+    background-color: #ffffff; /* Light background for the image container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.image-container img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Member Link Styling */
+.member-link {
+    margin-top: 20px;
+    text-align: center;
+    color: #0095f6; /* Instagram-like blue color for the link */
+    text-decoration: none; 
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.member-link:hover {
+    text-decoration: underline; /* Underline on hover for a subtle effect */
+}
+
+/* Error Message Styling */
+.error-message {
+    color: #e53e3e; /* Red color */
+    background-color: #fff5f5; /* Light red background */
+    border: 1px solid #e53e3e; /* Red border */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+    }
+
+    .form-container, .image-container {
+        width: 100%; /* Full width for each container on smaller screens */
+        border-right: none; /* Remove border on smaller screens */
+        border-bottom: 1px solid #ddd; /* Add bottom border for separation */
+    }
+
+    .image-container {
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    .form-container h1 {
+        font-size: 1.2em; /* Adjust font size for headings */
+    }
+
+    .form-container button {
+        font-size: 1em; /* Adjust button font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container input, .form-container button {
+        font-size: 0.8em; /* Adjust font size for very small screens */
+    }
+}

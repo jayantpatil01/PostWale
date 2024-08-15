@@ -1,0 +1,22 @@
+<nav class="navbar">
+    <a href="/Home" class="logo">PostWale</a>
+    <div class="hamburger" onclick="toggleNavbar()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <ul class="navbar-menu">
+        <li><a href="/Home"><i class="fas fa-home"></i><span class="nav-text">Home</span></a></li>
+        <li><a href="/myprofile"><i class="fas fa-user"></i><span class="nav-text">MyProfile</span></a></li>
+        <li><a href="/Home/Users"><i class="fas fa-users"></i><span class="nav-text">Users</span></a></li>
+        <li><a href="/Home/creatpost"><i class="fas fa-plus-circle"></i><span class="nav-text">Create Post</span></a></li>
+        <li><a href="/logout" class="logout-btn"><i class="fas fa-sign-out-alt"></i><span class="nav-text">Logout</span></a></li>
+    </ul>
+</nav>
+
+<script>
+function toggleNavbar() {
+    const navbar = document.querySelector('.navbar');
+    navbar.classList.toggle('active');
+}
+</script>
