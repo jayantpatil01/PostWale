@@ -39,7 +39,7 @@ router.post('/register', upload.single("avatar"), async (req, res) => {
 
 router.get('/login', (req, res) => {
     const message = req.query.message || '';
-    res.render('login', { message });
+    res.render('Login', { message });
 });
 
 router.post('/login', async (req, res) => {
