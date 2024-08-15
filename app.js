@@ -6,6 +6,7 @@ const postRoute = require('./routes/post');
 const ejs = require('ejs');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const methodOverride = require('method-override');
 
 // Load environment variables from .env file
 dotenv.config();
@@ -19,10 +20,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.set("view engine", "ejs");
 
+// Use method-override middleware
+app.use(methodOverride('_method'));
+
 // Route
 app.use('/', userRoute);
 app.use('/', postRoute); 
-
 
 app.listen(PORT, () => {
     console.log(`Server started at port ${PORT}`);

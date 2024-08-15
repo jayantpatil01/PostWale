@@ -38,6 +38,7 @@ body {
     margin: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s, transform 0.3s;
+    overflow: hidden; /* Ensure no overflow */
 }
 
 .post:hover {
@@ -83,33 +84,47 @@ body {
     margin-right: 10px;
 }
 
-/* Like Section Styling */
+/* Action Buttons Section */
 .like-section {
     display: flex;
-    align-items: center;
-    padding: 15px;
+    justify-content: center; /* Center buttons horizontally */
+    padding: 10px;
     border-top: 1px solid #ddd;
     background-color: #fafafa;
+    box-sizing: border-box; /* Ensure padding doesn't overflow */
+    flex-wrap: wrap; /* Allow wrapping of buttons */
 }
 
-.edit-button {
-    display: inline-block;
-    background-color: #3498db;
-    color: #fff;
-    padding: 8px 16px;
+.edit-button, .delete-button, .like-button {
+    padding: 8px 12px; /* Adjust padding */
     border-radius: 5px;
     font-size: 14px;
     font-weight: 600;
     text-decoration: none;
     text-align: center;
     transition: background-color 0.3s, transform 0.3s;
-    margin-right: 10px;
+    margin: 5px; /* Adjust margin */
     cursor: pointer;
 }
 
+.edit-button {
+    background-color: #f1c40f; /* Yellow color for edit */
+    color: #333;
+}
+
 .edit-button:hover {
-    background-color: #2980b9;
+    background-color: #f39c12; /* Darker yellow on hover */
     transform: scale(1.05);
+}
+
+.delete-button {
+    background-color: #e53e3e; /* Red color for delete */
+    color: white;
+    border: none;
+}
+
+.delete-button:hover {
+    background-color: #c53030; /* Darker red on hover */
 }
 
 .like-button {
@@ -117,7 +132,7 @@ body {
     color: #fff;
     border: none;
     border-radius: 5px;
-    padding: 8px 16px;
+    padding: 8px 12px; /* Adjust padding */
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
