@@ -30,16 +30,13 @@ router.post('/register', upload.single("avatar"), async (req, res) => {
         });
 
         const token = jwt.sign({ email: user.email, id: user._id }, process.env.SecretKey);
-        res.cookie("Token", token);
+        res.cookie("Token", token, { maxAge: 60 * 60 * 1000 }); // 1 hour
         res.redirect('/Home');
     } catch (error) {
         console.error("Error registering user:", error);
         res.status(500).render('Register', { error: "Error registering user. Please try again." });
     }
 });
-
-
-
 
 router.get('/login', (req, res) => {
     const message = req.query.message || '';
@@ -58,7 +55,7 @@ router.post('/login', async (req, res) => {
         const result = await bcrypt.compare(password, user.password);
         if (result) {
             const token = jwt.sign({ email: user.email, id: user._id }, process.env.SecretKey);
-            res.cookie("Token", token);
+            res.cookie("Token", token, { maxAge: 60 * 60 * 1000 }); // 1 hour
             res.redirect('/Home');
         } else {
             res.status(400).render('Login', { message: "Invalid password" });
@@ -68,7 +65,6 @@ router.post('/login', async (req, res) => {
         res.status(500).render('Login', { message: "Error logging in. Please try again." });
     }
 });
-
 
 router.get('/Home', authenticate, async (req, res) => {
     try {
@@ -80,7 +76,6 @@ router.get('/Home', authenticate, async (req, res) => {
     }
 });
 
-
 router.get('/Home/Users', authenticate, async (req, res) => {
     try {
         const users = await userModel.find();
@@ -90,7 +85,6 @@ router.get('/Home/Users', authenticate, async (req, res) => {
         res.status(500).render('Users', { users: [], error: "Error fetching users. Please try again later." });
     }
 });
-
 
 router.get('/myprofile', authenticate, async (req, res) => {
     try {
@@ -108,5 +102,3 @@ router.get('/logout', authenticate, (req, res) => {
 });
 
 module.exports = router;
-
-
