@@ -13,9 +13,14 @@
     <div class="container">
         <div class="form-container">
             <h1>Register on PostWale</h1>
-            <% if (typeof error !== 'undefined' && error) { %>
-                <p class="error-message"><%= error %></p>
+            <% if (errors && errors.length > 0) { %>
+                <ul class="error-messages">
+                    <% errors.forEach(function(error) { %>
+                        <li class="error-message"><%= error.msg %></li>
+                    <% }); %>
+                </ul>
             <% } %>
+            
 
             <form action="/register" method="post" enctype="multipart/form-data" onsubmit="showSpinner()">
                 <label for="name">Name:</label>
